@@ -10,6 +10,12 @@ dependencies = [
     "pygame>=2.6.1",
 ]
 
+[tool.uv]
+no-binary-package = ["pygame"]
+
+[tool.uv.extra-build-variables]
+pygame = { PYGAME_DETECT_AVX2 = "1", CFLAGS = "-mavx2" }
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
